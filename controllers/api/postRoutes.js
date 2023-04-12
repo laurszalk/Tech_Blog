@@ -2,7 +2,10 @@ const router = require("express").Router();
 const { Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// everythhing in here starts with '/api/posts/'
 router.post("/", withAuth, async (req, res) => {
+  // Verify we are getting the correct data
+  console.log("Incoming request body: ", req.body)
   try {
     const newPost = await Post.create({
       ...req.body,
@@ -10,6 +13,7 @@ router.post("/", withAuth, async (req, res) => {
     });
 
     res.status(200).json(newPost);
+   // res.redirect('/profile');
   } catch (err) {
     res.status(400).json(err);
   }
