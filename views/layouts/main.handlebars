@@ -10,18 +10,18 @@
   <body>
     <div class="flex-column justify-space-around">
       <header class="display-flex justify-space-between align-center p-2">
-        <h1>
-          <a href="/">Tech Blog</a>
-        </h1>
         <nav>
+          <ul>
+          <li><a href="/" class="header">Tech Blog</a></li>
+          <li><a href="/" class="navLink">Home</a></li>
+          <li><a href="/dashboard" class="navLink">Dashboard</a></li>
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
-            <a href="/profile">profile</a>
-            |
-            <button class="no-button" id="logout">logout</button>
+            <li><button class="no-button" id="logout">Log out</button></li>
           {{else}}
-            <a href="/login">login</a>
+            <li><a href="/login" class="navLink">Log in</a>
           {{/if}}
+          </ul>
         </nav>
       </header>
       <main class="container container-fluid mt-5">
